@@ -5,6 +5,11 @@ This repository contains the parameters for different robots. Each
 robot's parameters are placed in an individual folder under the robot's
 name. 
 
+IT IS STRONGLY ADVISED TO CLONE THIS REPO IN YOUR `$HOME` DIRECTORY.
+THIS IS BECAUSE THE SYMORO SOFTWARE BY DEFAULT USES THE `$HOME` FOLDER
+TO STORE FILES AND DOES NOT HAVE ANY OPTION TO MODIFY THIS CHOICE AT
+THIS POINT IN TIME.
+
 The `*.par` files specify the robot parameters - geometric and dynamic.
 All the parameters required to model a robot symbolically using SYMORO
 or otherwise are specified in the `*.par` file. It should be noted that
