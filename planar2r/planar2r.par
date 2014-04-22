@@ -1,0 +1,57 @@
+(* Robotname = 'Planar2R' *)
+NL = 2
+NJ = 2
+NF = 3
+Type = 0
+is_mobile = 0
+
+(* Geometric parameters *)
+ant = {0,1,2}
+sigma = {0,0,2}
+b = {0,0,0}
+d = {0,L1,L2}
+r = {0,0,0}
+gamma = {0,0,0}
+alpha = {0,0,0}
+mu = {1,1,0}
+theta = {th1,th2,0}
+
+(* Dynamic parameters and external forces *)
+XX = {XX1,XX2}
+XY = {XY1,XY2}
+XZ = {XZ1,XZ2}
+YY = {YY1,YY2}
+YZ = {YZ1,YZ2}
+ZZ = {ZZ1,ZZ2}
+MX = {MX1,MX2}
+MY = {MY1,MY2}
+MZ = {MZ1,MZ2}
+M = {M1,M2}
+IA = {IA1,IA2}
+FV = {FV1,FV2}
+FS = {FS1,FS2}
+FX = {0,FX2}
+FY = {0,FY2}
+FZ = {0,FZ2}
+CX = {0,CX2}
+CY = {0,CY2}
+CZ = {0,CZ2}
+
+(* Joint parameters *)
+QP = {QP1,QP2}
+QDP = {QDP1,QDP2}
+GAM = {GAM1,GAM2}
+
+(* Speed and acceleration of the base *)
+W0 = {0,0,0}
+WP0 = {0,0,0}
+V0 = {0,0,0}
+VP0 = {0,0,0}
+
+(* Acceleration of gravity *)
+G = {0,0,G3}
+
+(* Transformation of 0 frame position fT0 *)
+Z = {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1}
+
+(* End of definition *)

@@ -13,8 +13,6 @@ j       ant     sigma   mu      gamma   b       alpha   d       theta   r
 Equations:
 cos(th2 + th3) = -sin(th2)*sin(th3) + cos(th2)*cos(th3)
 sin(th2 + th3) = sin(th2)*cos(th3) + sin(th3)*cos(th2)
-sin(th2) = -sin(th3)*cos(th2 + th3) + sin(th2 + th3)*cos(th3)
-cos(th2) = sin(th3)*sin(th2 + th3) + cos(th3)*cos(th2 + th3)
 J11 = 0
 J21 = 0
 J31 = 0

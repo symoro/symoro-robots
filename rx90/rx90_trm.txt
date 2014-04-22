@@ -1,0 +1,29 @@
+Direct Geometrix model
+
+Geometric parameters
+j       ant     sigma   mu      gamma   b       alpha   d       theta   r       
+1       0       0       1       0       0       0       0       th1     0       
+2       1       0       1       0       0       pi/2    0       th2     0       
+3       2       0       1       0       0       0       D3      th3     0       
+4       3       0       1       0       0       -pi/2   0       th4     RL4     
+5       4       0       1       0       0       pi/2    0       th5     0       
+6       5       0       1       0       0       -pi/2   0       th6     0       
+
+Equations:
+Tramsformation matrix 0 T 6
+cos(th2 + th3) = -sin(th2)*sin(th3) + cos(th2)*cos(th3)
+sin(th2 + th3) = sin(th2)*cos(th3) + sin(th3)*cos(th2)
+T0T611 = ((-sin(th4)*sin(th6) + cos(th4)*cos(th5)*cos(th6))*cos(th2 + th3) - sin(th5)*sin(th2 + th3)*cos(th6))*cos(th1) - (sin(th4)*cos(th5)*cos(th6) + sin(th6)*cos(th4))*sin(th1)
+T0T621 = ((-sin(th4)*sin(th6) + cos(th4)*cos(th5)*cos(th6))*cos(th2 + th3) - sin(th5)*sin(th2 + th3)*cos(th6))*sin(th1) + (sin(th4)*cos(th5)*cos(th6) + sin(th6)*cos(th4))*cos(th1)
+T0T631 = (-sin(th4)*sin(th6) + cos(th4)*cos(th5)*cos(th6))*sin(th2 + th3) + sin(th5)*cos(th6)*cos(th2 + th3)
+T0T612 = ((-sin(th4)*cos(th6) - sin(th6)*cos(th4)*cos(th5))*cos(th2 + th3) + sin(th5)*sin(th6)*sin(th2 + th3))*cos(th1) - (-sin(th4)*sin(th6)*cos(th5) + cos(th4)*cos(th6))*sin(th1)
+T0T622 = ((-sin(th4)*cos(th6) - sin(th6)*cos(th4)*cos(th5))*cos(th2 + th3) + sin(th5)*sin(th6)*sin(th2 + th3))*sin(th1) + (-sin(th4)*sin(th6)*cos(th5) + cos(th4)*cos(th6))*cos(th1)
+T0T632 = (-sin(th4)*cos(th6) - sin(th6)*cos(th4)*cos(th5))*sin(th2 + th3) - sin(th5)*sin(th6)*cos(th2 + th3)
+T0T613 = (-sin(th5)*cos(th4)*cos(th2 + th3) - sin(th2 + th3)*cos(th5))*cos(th1) + sin(th1)*sin(th4)*sin(th5)
+T0T623 = (-sin(th5)*cos(th4)*cos(th2 + th3) - sin(th2 + th3)*cos(th5))*sin(th1) - sin(th4)*sin(th5)*cos(th1)
+T0T633 = -sin(th5)*sin(th2 + th3)*cos(th4) + cos(th5)*cos(th2 + th3)
+T0T614 = (D3*cos(th2) - RL4*sin(th2 + th3))*cos(th1)
+T0T624 = (D3*cos(th2) - RL4*sin(th2 + th3))*sin(th1)
+T0T634 = D3*sin(th2) + RL4*cos(th2 + th3)
+
+*=*

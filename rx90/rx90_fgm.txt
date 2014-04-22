@@ -1,0 +1,57 @@
+Direct Geometrix model
+
+Geometric parameters
+j       ant     sigma   mu      gamma   b       alpha   d       theta   r       
+1       0       0       1       0       0       0       0       th1     0       
+2       1       0       1       0       0       pi/2    0       th2     0       
+3       2       0       1       0       0       0       D3      th3     0       
+4       3       0       1       0       0       -pi/2   0       th4     RL4     
+5       4       0       1       0       0       pi/2    0       th5     0       
+6       5       0       1       0       0       -pi/2   0       th6     0       
+
+Equations:
+C6 = cos(th6)
+S6 = sin(th6)
+C5 = cos(th5)
+S5 = sin(th5)
+T4T611 = C5*C6
+T4T631 = C6*S5
+T4T612 = -C5*S6
+T4T632 = -S5*S6
+C4 = cos(th4)
+S4 = sin(th4)
+T3T611 = C4*T4T611 - S4*S6
+T3T631 = -C4*S6 - S4*T4T611
+T3T612 = C4*T4T612 - C6*S4
+T3T632 = -C4*C6 - S4*T4T612
+T3T613 = -C4*S5
+T3T633 = S4*S5
+C3 = cos(th3)
+S3 = sin(th3)
+C2 = cos(th2)
+S2 = sin(th2)
+C23 = C2*C3 - S2*S3
+S23 = C2*S3 + C3*S2
+T1T611 = C23*T3T611 - S23*T4T631
+T1T631 = C23*T4T631 + S23*T3T611
+T1T612 = C23*T3T612 - S23*T4T632
+T1T632 = C23*T4T632 + S23*T3T612
+T1T613 = C23*T3T613 - C5*S23
+T1T633 = C23*C5 + S23*T3T613
+T1T614 = C2*D3 - RL4*S23
+T1T634 = C23*RL4 + D3*S2
+C1 = cos(th1)
+S1 = sin(th1)
+T0T611 = C1*T1T611 + S1*T3T631
+T0T621 = -C1*T3T631 + S1*T1T611
+T0T631 = T1T631
+T0T612 = C1*T1T612 + S1*T3T632
+T0T622 = -C1*T3T632 + S1*T1T612
+T0T632 = T1T632
+T0T613 = C1*T1T613 + S1*T3T633
+T0T623 = -C1*T3T633 + S1*T1T613
+T0T633 = T1T633
+T0T614 = C1*T1T614
+T0T624 = S1*T1T614
+T0T634 = T1T634
+*=*
