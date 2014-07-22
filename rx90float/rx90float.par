@@ -3,7 +3,8 @@ NL = 6
 NJ = 6
 NF = 6
 Type = 0
-is_mobile = 1
+is_floating = 1
+is_mobile = 0
 
 (* Geometric parameters *)
 ant = {0,1,2,3,4,5}

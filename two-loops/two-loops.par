@@ -3,6 +3,7 @@ NL = 8
 NJ = 10
 NF = 12
 Type = 2
+is_floating = 0
 is_mobile = 0
 
 (* Geometric parameters *)

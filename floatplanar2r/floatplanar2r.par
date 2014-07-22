@@ -1,9 +1,10 @@
-(* Robotname = 'FloatPlanar2R' *)
+(* Robotname = 'floatplanar2r' *)
 NL = 2
 NJ = 2
 NF = 2
 Type = 0
-is_mobile = 1
+is_floating = True
+is_mobile = False
 
 (* Geometric parameters *)
 ant = {0,1}
