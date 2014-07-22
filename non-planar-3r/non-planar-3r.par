@@ -1,0 +1,57 @@
+(* Robotname = 'non-planar-3r' *)
+NL = 3
+NJ = 3
+NF = 3
+Type = 0
+is_mobile = 0
+
+(* Geometric parameters *)
+ant = {0,1,2}
+sigma = {0,0,0}
+b = {0,0,0}
+d = {D1,D2,D3}
+r = {0,0,0}
+gamma = {0,0,0}
+alpha = {0,0,pi/2}
+mu = {1,1,1}
+theta = {q1,q2,q3}
+
+(* Dynamic parameters and external forces *)
+XX = {XX1,XX2,XX3}
+XY = {XY1,XY2,XY3}
+XZ = {XZ1,XZ2,XZ3}
+YY = {YY1,YY2,YY3}
+YZ = {YZ1,YZ2,YZ3}
+ZZ = {ZZ1,ZZ2,ZZ3}
+MX = {MX1,MX2,MX3}
+MY = {MY1,MY2,MY3}
+MZ = {MZ1,MZ2,MZ3}
+M = {M1,M2,M3}
+IA = {0,0,0}
+FV = {FV1,FV2,FV3}
+FS = {FS1,FS2,FS3}
+FX = {0,0,0}
+FY = {0,0,0}
+FZ = {0,0,0}
+CX = {0,0,0}
+CY = {0,0,0}
+CZ = {0,0,0}
+
+(* Joint parameters *)
+QP = {QP1,QP2,QP3}
+QDP = {QDP1,QDP2,QDP3}
+GAM = {GAM1,GAM2,GAM3}
+
+(* Speed and acceleration of the base *)
+W0 = {0,0,0}
+WP0 = {0,0,0}
+V0 = {0,0,0}
+VP0 = {0,0,0}
+
+(* Acceleration of gravity *)
+G = {0,0,-G3}
+
+(* Transformation of 0 frame position fT0 *)
+Z = {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1}
+
+(* End of definition *)

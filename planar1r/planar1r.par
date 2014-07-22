@@ -1,0 +1,57 @@
+(* Robotname = 'Planar1R' *)
+NL = 1
+NJ = 1
+NF = 1
+Type = 0
+is_mobile = 0
+
+(* Geometric parameters *)
+ant = {0}
+sigma = {0}
+b = {0}
+d = {0}
+r = {0}
+gamma = {0}
+alpha = {0}
+mu = {1}
+theta = {q1}
+
+(* Dynamic parameters and external forces *)
+XX = {XX1}
+XY = {XY1}
+XZ = {XZ1}
+YY = {YY1}
+YZ = {YZ1}
+ZZ = {ZZ1}
+MX = {MX1}
+MY = {MY1}
+MZ = {MZ1}
+M = {M1}
+IA = {0}
+FV = {0}
+FS = {0}
+FX = {0}
+FY = {0}
+FZ = {0}
+CX = {0}
+CY = {0}
+CZ = {0}
+
+(* Joint parameters *)
+QP = {QP1}
+QDP = {QDP1}
+GAM = {GAM1}
+
+(* Speed and acceleration of the base *)
+W0 = {0,0,0}
+WP0 = {0,0,0}
+V0 = {0,0,0}
+VP0 = {0,0,0}
+
+(* Acceleration of gravity *)
+G = {0,0,-G3}
+
+(* Transformation of 0 frame position fT0 *)
+Z = {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1}
+
+(* End of definition *)

@@ -1,0 +1,197 @@
+Direct Dynamic Model using Newton-Euler Algorithm
+
+Geometric parameters
+j       ant     sigma   mu      gamma   b       alpha   d       theta   r       
+1       0       0       1       0       0       0       0       q1      0       
+2       1       0       1       0       0       0       L1      q2      0       
+3       2       2       0       0       0       0       L2      0       0       
+
+Dynamic inertia parameters
+j       XX      XY      XZ      YY      YZ      ZZ      MX      MY      MZ      M       IA      
+1       XX1     XY1     XZ1     YY1     YZ1     ZZ1     MX1     MY1     MZ1     M1      0       
+2       XX2     XY2     XZ2     YY2     YZ2     ZZ2     MX2     MY2     MZ2     M2      0       
+3       0       0       0       0       0       0       0       0       0       0       0       
+
+External forces and joint parameters
+j       FX      FY      FZ      CX      CY      CZ      FS      FV      QP      QDP     GAM     
+1       0       0       0       0       0       0       0       FV1     QP1     QDP1    GAM1    
+2       0       0       0       0       0       0       0       FV2     QP2     QDP2    GAM2    
+3       0       0       0       0       0       0       0       0       0       0       0       
+
+Base velicities parameters
+axis    W0      WP0     V0      VP0     G       
+X       0       0       0       0       0       
+Y       0       0       0       0       0       
+Z       0       0       0       0       -G3     
+
+Equations:
+C1 = cos(q1);
+S1 = sin(q1);
+C2 = cos(q2);
+S2 = sin(q2);
+W32 = QP1 + QP2;
+JPR132 = L1*S2;
+JPR232 = C2*L1;
+JW11 = QP1*XZ1;
+JW21 = QP1*YZ1;
+JW31 = QP1*ZZ1;
+KW11 = -JW21*QP1;
+KW21 = JW11*QP1;
+SW11 = -MX1*QP1**2;
+SW21 = -MY1*QP1**2;
+JW12 = W32*XZ2;
+JW22 = W32*YZ2;
+JW32 = W32*ZZ2;
+KW12 = -JW22*W32;
+KW22 = JW12*W32;
+SW12 = -MX2*W32**2;
+SW22 = -MY2*W32**2;
+LW12 = -C2*L1*QP1**2;
+LW22 = L1*QP1**2*S2;
+LW13 = -L2*W32**2;
+JD2 = 1/ZZ2;
+JU12 = -JD2*MY2;
+JU22 = JD2*MX2;
+JU42 = JD2*XZ2;
+JU52 = JD2*YZ2;
+JU62 = JD2*ZZ2;
+GW2 = -FV2*QP2 + GAM2;
+GK112 = JU12*MY2 + M2;
+GK212 = JU22*MY2;
+GK412 = JU42*MY2;
+GK512 = JU52*MY2 + MZ2;
+GK612 = JU62*MY2 - MY2;
+GK122 = -JU12*MX2;
+GK222 = -JU22*MX2 + M2;
+GK422 = -JU42*MX2 - MZ2;
+GK522 = -JU52*MX2;
+GK622 = -JU62*MX2 + MX2;
+GK142 = -JU12*XZ2;
+GK242 = -JU22*XZ2 - MZ2;
+GK442 = -JU42*XZ2 + XX2;
+GK542 = -JU52*XZ2 + XY2;
+GK642 = -JU62*XZ2 + XZ2;
+GK152 = -JU12*YZ2 + MZ2;
+GK252 = -JU22*YZ2;
+GK452 = -JU42*YZ2 + XY2;
+GK552 = -JU52*YZ2 + YY2;
+GK652 = -JU62*YZ2 + YZ2;
+GK162 = -JU12*ZZ2 - MY2;
+GK262 = -JU22*ZZ2 + MX2;
+GK462 = -JU42*ZZ2 + XZ2;
+GK562 = -JU52*ZZ2 + YZ2;
+GK662 = -JU62*ZZ2 + ZZ2;
+NG12 = GK112*LW12 + GK122*LW22;
+NG22 = GK212*LW12 + GK222*LW22;
+NG42 = GK412*LW12 + GK422*LW22;
+NG52 = GK512*LW12 + GK522*LW22;
+NG62 = GK612*LW12 + GK622*LW22;
+VS12 = GW2*JU12 + NG12;
+VS22 = GW2*JU22 + NG22;
+VS42 = GW2*JU42 + NG42;
+VS52 = GW2*JU52 + NG52;
+VS62 = GW2*JU62 + NG62;
+AP12 = SW12 + VS12;
+AP22 = SW22 + VS22;
+AP42 = KW12 + VS42;
+AP52 = KW22 + VS52;
+GX112 = C2*GK112 - GK212*S2;
+GX212 = C2*GK212 + GK112*S2;
+GX412 = C2*GK412 - GK512*S2;
+GX512 = C2*GK512 + GK412*S2;
+GX612 = GK112*JPR132 + GK212*JPR232 + GK612;
+GX122 = C2*GK122 - GK222*S2;
+GX222 = C2*GK222 + GK122*S2;
+GX422 = C2*GK422 - GK522*S2;
+GX522 = C2*GK522 + GK422*S2;
+GX622 = GK122*JPR132 + GK222*JPR232 + GK622;
+GX432 = C2*MY2 + MX2*S2;
+GX532 = -C2*MX2 - L1*M2 + MY2*S2;
+GX142 = C2*GK142 - GK242*S2;
+GX242 = C2*GK242 + GK142*S2;
+GX442 = C2*GK442 - GK542*S2;
+GX542 = C2*GK542 + GK442*S2 - L1*MY2;
+GX642 = GK142*JPR132 + GK242*JPR232 + GK642;
+GX152 = C2*GK152 - GK252*S2;
+GX252 = C2*GK252 + GK152*S2;
+GX452 = C2*GK452 - GK552*S2;
+GX552 = C2*GK552 + GK452*S2 + L1*MX2;
+GX652 = GK152*JPR132 + GK252*JPR232 + GK652;
+GX162 = C2*GK162 - GK262*S2;
+GX262 = C2*GK262 + GK162*S2;
+GX462 = C2*GK462 - GK562*S2;
+GX562 = C2*GK562 + GK462*S2;
+GX662 = GK162*JPR132 + GK262*JPR232 + GK662;
+TKT112 = C2*GX112 - GX122*S2;
+TKT212 = C2*GX212 - GX222*S2;
+TKT412 = C2*GX412 - GX422*S2;
+TKT512 = C2*GX512 - GX522*S2;
+TKT612 = C2*GX612 - GX622*S2;
+TKT222 = C2*GX222 + GX212*S2;
+TKT422 = C2*GX422 + GX412*S2;
+TKT522 = C2*GX522 + GX512*S2;
+TKT622 = C2*GX622 + GX612*S2;
+TKT442 = C2*GX442 - GX452*S2;
+TKT542 = C2*GX542 - GX552*S2;
+TKT642 = C2*GX642 - GX652*S2;
+TKT552 = C2*GX552 - GX532*L1 + GX542*S2;
+TKT652 = C2*GX652 + GX642*S2;
+TKT662 = GX612*JPR132 + GX622*JPR232 + GX662;
+MJE111 = M1 + TKT112;
+MJE511 = MZ1 + TKT512;
+MJE611 = -MY1 + TKT612;
+MJE221 = M1 + TKT222;
+MJE421 = -MZ1 + TKT422;
+MJE621 = MX1 + TKT622;
+MJE331 = M1 + M2;
+MJE431 = GX432 + MY1;
+MJE531 = GX532 - MX1;
+MJE441 = TKT442 + XX1;
+MJE541 = TKT542 + XY1;
+MJE641 = TKT642 + XZ1;
+MJE551 = TKT552 + YY1;
+MJE651 = TKT652 + YZ1;
+MJE661 = TKT662 + ZZ1;
+VBE11 = -AP12*C2 + AP22*S2 - SW11;
+VBE21 = -AP12*S2 - AP22*C2 - SW21;
+VBE41 = -AP42*C2 + AP52*S2 - KW11;
+VBE51 = -AP42*S2 - AP52*C2 - KW21;
+VBE61 = -AP12*JPR132 - AP22*JPR232 - VS62;
+JD1 = 1/MJE661;
+JU11 = JD1*MJE611;
+JU21 = JD1*MJE621;
+JU41 = JD1*MJE641;
+JU51 = JD1*MJE651;
+JU61 = JD1*MJE661;
+GW1 = -FV1*QP1 + GAM1 + VBE61;
+QDP1 = GW1*JD1;
+VR12 = JPR132*QDP1 + LW12;
+VR22 = JPR232*QDP1 + LW22;
+GU2 = JU12*VR12 + JU22*VR22 + JU62*QDP1;
+QDP2 = -GU2 + GW2*JD2;
+WP32 = QDP1 + QDP2;
+VR13 = LW13 + VR12;
+VR23 = L2*WP32 + VR22;
+QDP3 = 0;
+DY11 = MJE611*QDP1;
+DY21 = MJE621*QDP1;
+DY31 = G3*MJE331;
+DY41 = G3*MJE431 + MJE641*QDP1;
+DY51 = G3*MJE531 + MJE651*QDP1;
+DY61 = MJE661*QDP1;
+N11 = DY41 - VBE41;
+N21 = DY51 - VBE51;
+N31 = DY61 - VBE61;
+E11 = DY11 - VBE11;
+E21 = DY21 - VBE21;
+DY12 = M2*VR12 - MY2*WP32;
+DY22 = M2*VR22 + MX2*WP32;
+DY32 = G3*M2;
+DY42 = G3*MY2 - MZ2*VR22 + WP32*XZ2;
+DY52 = -G3*MX2 + MZ2*VR12 + WP32*YZ2;
+DY62 = MX2*VR22 - MY2*VR12 + WP32*ZZ2;
+N12 = DY42 + KW12;
+N22 = DY52 + KW22;
+E12 = DY12 + SW12;
+E22 = DY22 + SW22;
+*=*

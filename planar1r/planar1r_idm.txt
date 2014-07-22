@@ -1,0 +1,39 @@
+Inverse dynamic model using Newton - Euler Algorith
+
+Geometric parameters
+j       ant     sigma   mu      gamma   b       alpha   d       theta   r       
+1       0       0       1       0       0       0       0       q1      0       
+
+Dynamic inertia parameters
+j       XX      XY      XZ      YY      YZ      ZZ      MX      MY      MZ      M       IA      
+1       XX1     XY1     XZ1     YY1     YZ1     ZZ1     MX1     MY1     MZ1     M1      0       
+
+External forces and joint parameters
+j       FX      FY      FZ      CX      CY      CZ      FS      FV      QP      QDP     GAM     
+1       0       0       0       0       0       0       0       0       QP1     QDP1    GAM1    
+
+Base velicities parameters
+axis    W0      WP0     V0      VP0     G       
+X       0       0       0       0       0       
+Y       0       0       0       0       0       
+Z       0       0       0       0       -G3     
+
+Equations:
+C1 = cos(q1);
+S1 = sin(q1);
+DV61 = QP1**2;
+F11 = -DV61*MX1 - MY1*QDP1;
+F12 = -DV61*MY1 + MX1*QDP1;
+F13 = G3*M1;
+PSI11 = QP1*XZ1;
+PSI12 = QP1*YZ1;
+PSI13 = QP1*ZZ1;
+No11 = -PSI12*QP1 + QDP1*XZ1;
+No12 = PSI11*QP1 + QDP1*YZ1;
+No13 = QDP1*ZZ1;
+N11 = G3*MY1 + No11;
+N12 = -G3*MX1 + No12;
+FDI11 = C1*F11 - F12*S1;
+FDI12 = C1*F12 + F11*S1;
+GAM1 = No13;
+*=*

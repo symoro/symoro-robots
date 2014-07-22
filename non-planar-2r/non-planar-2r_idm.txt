@@ -1,0 +1,84 @@
+Inverse dynamic model using Newton - Euler Algorith
+
+Geometric parameters
+j       ant     sigma   mu      gamma   b       alpha   d       theta   r       
+1       0       0       1       0       0       0       0       q1      R1      
+2       1       0       1       0       0       pi/2    0       q2      0       
+
+Dynamic inertia parameters
+j       XX      XY      XZ      YY      YZ      ZZ      MX      MY      MZ      M       IA      
+1       XX1     XY1     XZ1     YY1     YZ1     ZZ1     MX1     MY1     MZ1     M1      0       
+2       XX2     XY2     XZ2     YY2     YZ2     ZZ2     MX2     MY2     MZ2     M2      0       
+
+External forces and joint parameters
+j       FX      FY      FZ      CX      CY      CZ      FS      FV      QP      QDP     GAM     
+1       0       0       0       0       0       0       0       0       QP1     QDP1    GAM1    
+2       0       0       0       0       0       0       0       0       QP2     QDP2    GAM2    
+
+Base velicities parameters
+axis    W0      WP0     V0      VP0     G       
+X       0       0       0       0       0       
+Y       0       0       0       0       0       
+Z       0       0       0       0       -G3     
+
+Equations:
+C1 = cos(q1);
+S1 = sin(q1);
+C2 = cos(q2);
+S2 = sin(q2);
+DV61 = QP1**2;
+W12 = QP1*S2;
+W22 = C2*QP1;
+WP12 = QDP1*S2 + QP2*W22;
+WP22 = C2*QDP1 - QP2*W12;
+DV12 = W12**2;
+DV22 = W12*W22;
+DV32 = QP2*W12;
+DV42 = W22**2;
+DV52 = QP2*W22;
+DV62 = QP2**2;
+U112 = -DV42 - DV62;
+U212 = DV22 + QDP2;
+U312 = DV32 - WP22;
+U122 = DV22 - QDP2;
+U222 = -DV12 - DV62;
+U322 = DV52 + WP12;
+U132 = DV32 + WP22;
+U232 = DV52 - WP12;
+U332 = -DV12 - DV42;
+VP12 = G3*S2;
+VP22 = C2*G3;
+F11 = -DV61*MX1 - MY1*QDP1;
+F12 = -DV61*MY1 + MX1*QDP1;
+F13 = G3*M1;
+PSI11 = QP1*XZ1;
+PSI12 = QP1*YZ1;
+PSI13 = QP1*ZZ1;
+No11 = -PSI12*QP1 + QDP1*XZ1;
+No12 = PSI11*QP1 + QDP1*YZ1;
+No13 = QDP1*ZZ1;
+F21 = M2*VP12 + MX2*U112 + MY2*U122 + MZ2*U132;
+F22 = M2*VP22 + MX2*U212 + MY2*U222 + MZ2*U232;
+F23 = MX2*U312 + MY2*U322 + MZ2*U332;
+PSI21 = QP2*XZ2 + W12*XX2 + W22*XY2;
+PSI22 = QP2*YZ2 + W12*XY2 + W22*YY2;
+PSI23 = QP2*ZZ2 + W12*XZ2 + W22*YZ2;
+No21 = -PSI22*QP2 + PSI23*W22 + QDP2*XZ2 + WP12*XX2 + WP22*XY2;
+No22 = PSI21*QP2 - PSI23*W12 + QDP2*YZ2 + WP12*XY2 + WP22*YY2;
+No23 = -PSI21*W22 + PSI22*W12 + QDP2*ZZ2 + WP12*XZ2 + WP22*YZ2;
+N21 = -MZ2*VP22 + No21;
+N22 = MZ2*VP12 + No22;
+N23 = MX2*VP22 - MY2*VP12 + No23;
+FDI21 = C2*F21 - F22*S2;
+FDI23 = C2*F22 + F21*S2;
+E11 = F11 + FDI21;
+E12 = F12 - F23;
+E13 = F13 + FDI23;
+N11 = C2*N21 + G3*MY1 - N22*S2 + No11;
+N12 = -G3*MX1 - N23 + No12;
+N13 = C2*N22 + N21*S2 + No13;
+FDI11 = C1*E11 - E12*S1;
+FDI12 = C1*E12 + E11*S1;
+GAM1 = N13;
+GAM2 = N23;
+*=*

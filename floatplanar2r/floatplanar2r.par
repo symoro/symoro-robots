@@ -1,0 +1,57 @@
+(* Robotname = 'FloatPlanar2R' *)
+NL = 2
+NJ = 2
+NF = 2
+Type = 0
+is_mobile = 1
+
+(* Geometric parameters *)
+ant = {0,1}
+sigma = {0,0}
+b = {0,0}
+d = {0,L1}
+r = {0,0}
+gamma = {0,0}
+alpha = {0,0}
+mu = {1,1}
+theta = {q1,q2}
+
+(* Dynamic parameters and external forces *)
+XX = {XX0,XX1,XX2}
+XY = {XY0,XY1,XY2}
+XZ = {XZ0,XZ1,XZ2}
+YY = {YY0,YY1,YY2}
+YZ = {YZ0,YZ1,YZ2}
+ZZ = {ZZ0,ZZ1,ZZ2}
+MX = {MX0,MX1,MX2}
+MY = {MY0,MY1,MY2}
+MZ = {MZ0,MZ1,MZ2}
+M = {M0,M1,M2}
+IA = {0,0,0}
+FV = {FV0,FV1,FV2}
+FS = {0,0,0}
+FX = {0,0,0}
+FY = {0,0,0}
+FZ = {0,0,0}
+CX = {0,0,0}
+CY = {0,0,0}
+CZ = {0,0,0}
+
+(* Joint parameters *)
+QP = {QP1,QP2}
+QDP = {QDP1,QDP2}
+GAM = {GAM1,GAM2}
+
+(* Speed and acceleration of the base *)
+W0 = {0,0,0}
+WP0 = {0,0,0}
+V0 = {0,0,0}
+VP0 = {0,0,0}
+
+(* Acceleration of gravity *)
+G = {0,0,-G3}
+
+(* Transformation of 0 frame position fT0 *)
+Z = {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1}
+
+(* End of definition *)
