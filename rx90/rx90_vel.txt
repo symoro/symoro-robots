@@ -1,0 +1,61 @@
+Link velocities
+
+Geometric parameters
+j       ant     sigma   mu      gamma   b       alpha   d       theta   r       
+1       0       0       1       0       0       0       0       th1     0       
+2       1       0       1       0       0       pi/2    0       th2     0       
+3       2       0       1       0       0       0       D3      th3     0       
+4       3       0       1       0       0       -pi/2   0       th4     RL4     
+5       4       0       1       0       0       pi/2    0       th5     0       
+6       5       0       1       0       0       -pi/2   0       th6     0       
+
+Equations:
+C1 = cos(th1);
+S1 = sin(th1);
+C2 = cos(th2);
+S2 = sin(th2);
+C3 = cos(th3);
+S3 = sin(th3);
+C4 = cos(th4);
+S4 = sin(th4);
+C5 = cos(th5);
+S5 = sin(th5);
+C6 = cos(th6);
+S6 = sin(th6);
+W11 = 0;
+W21 = 0;
+W31 = QP1;
+V11 = 0;
+V21 = 0;
+V31 = 0;
+W12 = C2*W11 + S2*W31;
+W22 = C2*W31 - S2*W11;
+W32 = QP2 - W21;
+V12 = C2*V11 + S2*V31;
+V22 = C2*V31 - S2*V11;
+V32 = -V21;
+W13 = C3*W12 + S3*W22;
+W23 = C3*W22 - S3*W12;
+W33 = QP3 + W32;
+V13 = C3*V12 + S3*(D3*W32 + V22);
+V23 = C3*(D3*W32 + V22) - S3*V12;
+V33 = -D3*W22 + V32;
+W14 = C4*W13 - S4*W33;
+W24 = -C4*W33 - S4*W13;
+W34 = QP4 + W23;
+V14 = C4*(-RL4*W33 + V13) - S4*(RL4*W13 + V33);
+V24 = -C4*(RL4*W13 + V33) - S4*(-RL4*W33 + V13);
+V34 = V23;
+W15 = C5*W14 + S5*W34;
+W25 = C5*W34 - S5*W14;
+W35 = QP5 - W24;
+V15 = C5*V14 + S5*V34;
+V25 = C5*V34 - S5*V14;
+V35 = -V24;
+W16 = C6*W15 - S6*W35;
+W26 = -C6*W35 - S6*W15;
+W36 = QP6 + W25;
+V16 = C6*V15 - S6*V35;
+V26 = -C6*V35 - S6*V15;
+V36 = V25;
+*=*
